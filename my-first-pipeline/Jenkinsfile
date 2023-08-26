@@ -12,6 +12,7 @@ pipeline {
             steps {
                 sh 'npm install'
                 sh 'npm test'
+                echo 'Node.js stage completed: the Node.js application is running'
             }
         }
 
@@ -24,6 +25,7 @@ pipeline {
             steps {
                 sh 'javac HelloWorld.java'
                 sh 'java HelloWorld'
+                echo 'Java stage completed: the Java application is running'
             }
         }
 
@@ -35,6 +37,7 @@ pipeline {
             }
             steps {
                 sh 'python my_script.py'
+                echo 'Python stage completed: the Python application is running'
             }
         }
     }
