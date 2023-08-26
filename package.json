@@ -1,7 +1,12 @@
 {
-  "name": "my-node-app",
+  "name": "hello-jenkins",
   "version": "1.0.0",
-  "dependencies": {
-
+  "description": "A simple Node.js application for Jenkins deployment",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo 'No tests available'"
   },
+  "author": "Your Name",
+  "license": "ISC"
 }
