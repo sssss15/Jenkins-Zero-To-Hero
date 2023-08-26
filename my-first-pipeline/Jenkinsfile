@@ -1,12 +1,41 @@
 pipeline {
-  agent {
-    docker { image 'node:16.20.2-alpine' }
-  }
-  stages {
-    stage('Test') {
-      steps {
-        sh 'node --version'
-      }
+    agent none // No default agent, we will define Docker agents in stages
+
+    stages {
+        stage('Node.js') {
+            agent {
+                docker {
+                    image 'node:14' // Use the Node.js 14 Docker image
+                    args '-u root' // Specify user if required
+                }
+            }
+            steps {
+                sh 'npm install'
+                sh 'npm test'
+            }
+        }
+
+        stage('Java') {
+            agent {
+                docker {
+                    image 'openjdk:11' // Use the OpenJDK 11 Docker image
+                }
+            }
+            steps {
+                sh 'javac HelloWorld.java'
+                sh 'java HelloWorld'
+            }
+        }
+
+        stage('Python') {
+            agent {
+                docker {
+                    image 'python:3' // Use the Python 3 Docker image
+                }
+            }
+            steps {
+                sh 'python my_script.py'
+            }
+        }
     }
-  }
 }
