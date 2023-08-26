@@ -4,7 +4,4 @@
   "dependencies": {
 
   },
-  "scripts": {
-    "test": "mocha"
-  }
 }
