@@ -5,7 +5,7 @@ pipeline {
         stage('Node.js') {
             agent {
                 docker {
-                    image 'node:14' // Use the Node.js 14 Docker image
+                    image 'node:14' // Use the Node.js 14 Docker imaae
                     args '-u root' // Specify user if required
                 }
             }
